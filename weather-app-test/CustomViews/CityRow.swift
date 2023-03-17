@@ -9,10 +9,20 @@ import SwiftUI
 
 struct CityRow: View {
     var city: City
+    @State var dest2Active: Bool = false
+    
     var body: some View {
-        HStack {
-            Text(city.name)
-        }
+        NavigationLink(isActive: $dest2Active, destination: {
+            ContentView()
+        }, label: {
+            HStack {
+                Text(city.name)
+                    .onTapGesture {
+                        UserDefaults.standard.set(city.name, forKey: "currentCity")
+                        dest2Active = true
+                    }
+            }
+        })
     }
 }
 

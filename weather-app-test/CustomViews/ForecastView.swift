@@ -15,22 +15,22 @@ struct DailyWeatherView: View {
     
     init(withForecaset forecastDataSource:Forecastday) {
         self.forecastDataSource = forecastDataSource
-        imageLoader = ImageLoader(urlString:"https:" + forecastDataSource.day!.condition!.icon!)
+        imageLoader = ImageLoader(urlString:"https:" + forecastDataSource.day.condition.icon)
     }
     
     var body: some View {
         VStack {
-            Text(((forecastDataSource.date?.stringToDate().dayOfWeek()) ?? "DAY").prefix(3))
+            Text(((forecastDataSource.date.stringToDate().dayOfWeek()) ?? "DAY").prefix(3))
                 .font(.system(size: 20, weight: .light))
                 .foregroundColor(Color.black)
             
-            AsyncImageTemplate(url: URL(string: "https:" + forecastDataSource.day!.condition!.icon!))
+            AsyncImageTemplate(url: URL(string: "https:" + forecastDataSource.day.condition.icon))
                 .frame(width: 50, height: 50)
             
-            Text("min: \(String(Int(forecastDataSource.day?.mintempC ?? 20)))°")
+            Text("min: \(String(Int(forecastDataSource.day.mintempC )))°")
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.black)
-            Text("max: \(String(Int(forecastDataSource.day?.maxtempC ?? 20)))°")
+            Text("max: \(String(Int(forecastDataSource.day.maxtempC )))°")
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.black)
         }

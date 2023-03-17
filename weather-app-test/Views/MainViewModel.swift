@@ -14,9 +14,6 @@ extension ContentView {
         @Published var currentWeatherDataSource: ForecastResponse?
         @Published var viewModelStatus = MainViewModelStatus.loading;
        
-        init() {
-            callForecastAPI()
-        }
         func callForecastAPI() {
             viewModelStatus = .loading
             let currentCity = UserDefaults.standard.object(forKey: "currentCity") as? String

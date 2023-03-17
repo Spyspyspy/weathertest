@@ -12,11 +12,9 @@ struct LocationView: View {
     var location: String
     @Binding var isNight: Bool
     var body: some View {
-        NavigationLink(destination: CityListingView()) {
             Text(location + "\n" + Date().getTime())
                 .font(.system(size: 32, weight: .medium, design: .default))
                 .foregroundColor(isNight ? Color.white : Color.black)
                 .padding()
-        }
     }
 }

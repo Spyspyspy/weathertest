@@ -24,7 +24,6 @@ struct CityListingView: View {
             List(cities) {
                 city in
                     CityRow(city: city)
-                       
             }
         }.accentColor(.black)
     }
